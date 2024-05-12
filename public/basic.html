@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mixcloud Player Example</title>
+</head>
+<body>
+    <!-- Embed Mixcloud iframe -->
+    <iframe id="mixcloud-player"
+            width="100%"
+            height="120"
+            src="https://www.mixcloud.com/widget/iframe/?feed=%2Frymixxx%2Fadventures-in-decent-music-volume-26%2F&hide_cover=1&mini=1&light=1"
+            frameborder="0"
+            allow="autoplay"
+    ></iframe>
+
+    <!-- Button to toggle play/pause -->
+    <button id="togglePlay">Toggle Play/Pause</button>
+
+    <!-- Add Mixcloud Widget API script -->
+    <script src="https://widget.mixcloud.com/media/js/widgetApi.js"></script>
+    <script>
+        var myWidget = Mixcloud.PlayerWidget(document.getElementById('mixcloud-player'));
+
+        // Ensure the widget is ready before using it
+        myWidget.ready.then(function() {
+            console.log('Widget is ready!');
+
+            // Button functionality to toggle play
+            document.getElementById('togglePlay').addEventListener('click', function() {
+                myWidget.togglePlay();
+            });
+        });
+    </script>
+</body>
+</html>
